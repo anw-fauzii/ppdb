@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DokumenController extends Controller
 {
@@ -12,7 +13,12 @@ class DokumenController extends Controller
      */
     public function index()
     {
-        return view('dokumen.index');
+        $dokumen= Dokumen::where('user_id', Auth::user()->id)->first();
+        if($dokumen){
+            return view('dokumen.index');
+        }else{
+            return view('dokumen.create');
+        }
     }
 
     /**
@@ -28,7 +34,20 @@ class DokumenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'kartu_keluarga' => 'required|mimes:jpg,jpeg,png',
+            'akta_kelahiran' => 'required|mimes:jpg,jpeg,png',
+            'ktp_ayah' => 'required|mimes:jpg,jpeg,png',
+            'ktp_ibu' => 'required|mimes:jpg,jpeg,png',
+        ]);
+        $model = new Dokumen();
+        $model->user_id = Auth::user()->id;
+        $model->kartu_keluarga = $request->file('kartu_keluarga')->store('FotoKartuKeluarga', 'public');
+        $model->akta_kelahiran = $request->file('akta_kelahiran')->store('FotoAktaKelahiran', 'public');
+        $model->ktp_ayah = $request->file('ktp_ayah')->store('FotoKTPAyah', 'public');
+        $model->ktp_ibu = $request->file('ktp_ibu')->store('FotoKTPIbu', 'public');
+        $model->save();
+
     }
 
     /**
