@@ -15,7 +15,7 @@ class DokumenController extends Controller
     {
         $dokumen= Dokumen::where('user_id', Auth::user()->id)->first();
         if($dokumen){
-            return view('dokumen.index');
+            return view('dokumen.index', compact('dokumen'));
         }else{
             return view('dokumen.create');
         }
@@ -26,7 +26,7 @@ class DokumenController extends Controller
      */
     public function create()
     {
-        //
+        return view('dokumen.create');
     }
 
     /**
