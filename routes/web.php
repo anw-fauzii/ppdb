@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DataOrtuController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\FormulirController;
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/formulir', FormulirController::class);
     Route::resource('/data-ortu', DataOrtuController::class);
     Route::resource('/dokumen', DokumenController::class);
+    Route::resource('/daftar', DaftarController::class);
 });
 
 

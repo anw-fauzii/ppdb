@@ -49,19 +49,19 @@ class User extends Authenticatable
     {
         parent::boot();
         static::creating(function ($model) {
-            $datePrefix = Carbon::now()->format('ymd');
+            $datePrefix = Carbon::now()->format('Y');
 
             $latestCode = User::where('id', 'like', "%" . $datePrefix . "%")
                 ->orderBy('id', 'desc')
                 ->value('id');
 
             if ($latestCode) {
-                $sequence = intval(substr($latestCode, -3)) + 1;
+                $sequence = intval(substr($latestCode, -2)) + 1;
             } else {
                 $sequence = 1;
             }
 
-            $model->id = $datePrefix . str_pad($sequence, 3, '0', STR_PAD_LEFT);
+            $model->id = $datePrefix . str_pad($sequence, 2, '0', STR_PAD_LEFT);
         });
     }
 }

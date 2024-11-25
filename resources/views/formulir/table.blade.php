@@ -77,7 +77,7 @@
                 </tr>
                 <tr>
                     <td>Berat Badan</td>
-                    <td>: {{$formulir->beran_badan}}</td>
+                    <td>: {{$formulir->berat_badan}}</td>
                 </tr>
             </tbody>
         </table>

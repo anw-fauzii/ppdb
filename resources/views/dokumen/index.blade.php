@@ -10,7 +10,7 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-home icon-gradient bg-mean-fruit"></i>
+                    <i class="pe-7s-id icon-gradient bg-mean-fruit"></i>
                 </div>
                 <div>Dokumen Pendukung
                     <div class="page-title-subheading">
@@ -26,7 +26,7 @@
             Data Ananda
         </div>
         <div class="card-body">
-            <a href="{{route('dokumen.create')}}" class="btn btn-primary mb-3">Isi Formulir</a>
+            <a href="{{route('dokumen.create')}}" class="btn btn-primary mb-3">Perbarui Dokumen</a>
             <table class="mb-0 table table-hover table-striped">
                 <thead>
                     <tr>
@@ -40,28 +40,44 @@
                         <td>1. </td>
                         <td>Kartu Keluarga</td>
                         <td>
-                            <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal"
-                                data-target="#exampleModal">
+                            <button type="button" class="btn mr-1 mb-1 btn-primary" data-toggle="modal"
+                                data-target="#kartuKeluarga">
+                                Lihat
                             </button>
-                            @include('dokumen.modal')
                         </td>
                     </tr>
                     <tr>
                         <td>2. </td>
                         <td>Akta Kelahiran</td>
-                        <td>Lihat</td>
+                        <td>
+                            <button type="button" class="btn mr-1 mb-1 btn-primary" data-toggle="modal"
+                                data-target="#aktaKelahiran">
+                                Lihat
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <td>3. </td>
                         <td>KTP Ayah</td>
-                        <td>Lihat</td>
+                        <td>
+                            <button type="button" class="btn mr-1 mb-1 btn-primary" data-toggle="modal"
+                                data-target="#ktpAyah">
+                                Lihat
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <td>4. </td>
                         <td>KTP Ibu</td>
-                        <td>Lihat</td>
+                        <td>
+                            <button type="button" class="btn mr-1 mb-1 btn-primary" data-toggle="modal"
+                                data-target="#ktpIbu">
+                                Lihat
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
+                @include('dokumen.modal')
             </table>
         </div>
     </div>

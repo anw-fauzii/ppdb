@@ -52,6 +52,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('daftar.index')}}" class="{{(request()->is('daftar') || request()->is('daftar/create')) ? 'mm-active' : ''}}">
+                        <i class="metismenu-icon pe-7s-cloud-upload"></i>
+                            Pendaftaran
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"><i class="metismenu-icon pe-7s-power"></i>Keluar</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
