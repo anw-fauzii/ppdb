@@ -20,63 +20,121 @@
             </div>  
         </div> 
     </div>
-    <div class="main-card mb-3 card">
-        <div class="card-body">
-            <h5 class="card-title">Alur Penerimaan peserta didik baru</h5>
-            <div class="vertical-time-icons vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
-                <div class="vertical-timeline-item vertical-timeline-element">
-                    <div>
-                        <div class="vertical-timeline-element-icon bounce-in">
-                            <div class="timeline-icon border-primary">
-                                <i class="pe-7s-note2"></i>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h5 class="card-title">Alur Penerimaan peserta didik baru</h5>
+                    <div class="vertical-time-icons vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
+                        <div class="vertical-timeline-item vertical-timeline-element">
+                            <div>
+                                <div class="vertical-timeline-element-icon bounce-in">
+                                    <div class="timeline-icon border-primary">
+                                        <i class="pe-7s-note2"></i>
+                                    </div>
+                                </div>
+                                <div class="vertical-timeline-element-content bounce-in">
+                                    <p>Langkah Pertama</p>
+                                    <h4 class="timeline-title mt-2">Mengisi Formulir Pendaftaran</h4>
+                                    <p>Isi setiap formulir dengan benar dan sesuai dengan identitas diri ananda.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="vertical-timeline-element-content bounce-in">
-                            <p>Langkah Pertama</p>
-                            <h4 class="timeline-title mt-2">Mengisi Formulir Pendaftaran</h4>
-                            <p>Isi setiap formulir dengan benar dan sesuai dengan identitas diri ananda.</p>
+                        <div class="vertical-timeline-item vertical-timeline-element">
+                            <div>
+                                <div class="vertical-timeline-element-icon bounce-in">
+                                    <div class="timeline-icon border-primary">
+                                        <i class="pe-7s-id"></i>
+                                    </div>
+                                </div>
+                                <div class="vertical-timeline-element-content bounce-in">
+                                    <p>Langkah Kedua</p>
+                                    <h4 class="timeline-title mt-2">Unggah Dokumen Kependudukan</h4>
+                                    <p>Unggah dokumen kependudukan dengan benar dan sesuai dengan identitas diri ananda.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vertical-timeline-item vertical-timeline-element">
+                            <div>
+                                <div class="vertical-timeline-element-icon bounce-in">
+                                    <div class="timeline-icon border-primary">
+                                        <i class="pe-7s-cloud-upload"></i>
+                                    </div>
+                                </div>
+                                <div class="vertical-timeline-element-content bounce-in">
+                                    <p>Langkah Ketiga</p>
+                                    <h4 class="timeline-title mt-2">Ajukan Pendaftaran</h4>
+                                    <p>Pilih gelombang pendaftaran dan pilih jursan yang anda inginkan di menu pendaftaran.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vertical-timeline-item vertical-timeline-element">
+                            <div>
+                                <div class="vertical-timeline-element-icon bounce-in">
+                                    <div class="timeline-icon border-primary">
+                                        <i class="pe-7s-speaker"></i>
+                                    </div>
+                                </div>
+                                <div class="vertical-timeline-element-content bounce-in">
+                                    <p>Langkah Keempat</p>
+                                    <h4 class="timeline-title mt-2">Tunggu Pengumuman</h4>
+                                    <p>Panitia akan mengumumkan hasil seleksi penerimaan peserta didik baru di menu pendaftaran.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="vertical-timeline-item vertical-timeline-element">
-                    <div>
-                        <div class="vertical-timeline-element-icon bounce-in">
-                            <div class="timeline-icon border-primary">
-                                <i class="pe-7s-id"></i>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Kontak PPDB</h5>
+                            <div class="table-responsive">
+                                <table class="table table striped">
+                                    <tr>
+                                        <th>Siswa Pendaftar</th>
+                                        <td>{{$pendaftaran->count()}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Siswa Belum  Diseleksi</th>
+                                        <td>{{$pendaftaran->where('status', 'Pending')->count()}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Siswa Diterima</th>
+                                        <td>{{$pendaftaran->where('status', 'Diterima')->count()}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Siswa Tidak Diterima</th>
+                                        <td>{{$pendaftaran->where('status', 'Ditolak')->count()}}</td>
+                                    </tr>
+                                </table>
                             </div>
-                        </div>
-                        <div class="vertical-timeline-element-content bounce-in">
-                            <p>Langkah Kedua</p>
-                            <h4 class="timeline-title mt-2">Unggah Dokumen Kependudukan</h4>
-                            <p>Unggah dokumen kependudukan dengan benar dan sesuai dengan identitas diri ananda.</p>
                         </div>
                     </div>
                 </div>
-                <div class="vertical-timeline-item vertical-timeline-element">
-                    <div>
-                        <div class="vertical-timeline-element-icon bounce-in">
-                            <div class="timeline-icon border-primary">
-                                <i class="pe-7s-cloud-upload"></i>
+                <div class="col-md-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Jumlah Pendaftar</h5>
+                            <div class="table-responsive">
+                                <table class="table table striped">
+                                    <tr>
+                                        <th>Diproses</th>
+                                        <td>{{$pendaftaran->where('status', 'Pending')->count()}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Diterima</th>
+                                        <td>{{$pendaftaran->where('status', 'Diterima')->count()}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ditolak</th>
+                                        <td>{{$pendaftaran->where('status', 'Ditolak')->count()}}</td>
+                                    </tr>
+                                </table>
                             </div>
-                        </div>
-                        <div class="vertical-timeline-element-content bounce-in">
-                            <p>Langkah Ketiga</p>
-                            <h4 class="timeline-title mt-2">Ajukan Pendaftaran</h4>
-                            <p>Pilih gelombang pendaftaran dan pilih jursan yang anda inginkan di menu pendaftaran.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="vertical-timeline-item vertical-timeline-element">
-                    <div>
-                        <div class="vertical-timeline-element-icon bounce-in">
-                            <div class="timeline-icon border-primary">
-                                <i class="pe-7s-speaker"></i>
-                            </div>
-                        </div>
-                        <div class="vertical-timeline-element-content bounce-in">
-                            <p>Langkah Keempat</p>
-                            <h4 class="timeline-title mt-2">Tunggu Pengumuman</h4>
-                            <p>Panitia akan mengumumkan hasil seleksi penerimaan peserta didik baru di menu pendaftaran.</p>
                         </div>
                     </div>
                 </div>

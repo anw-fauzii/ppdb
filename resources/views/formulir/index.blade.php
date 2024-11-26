@@ -10,7 +10,7 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-home icon-gradient bg-mean-fruit"></i>
+                    <i class="pe-7s-note2 icon-gradient bg-mean-fruit"></i>
                 </div>
                 <div>Formulir Pendaftaran
                     <div class="page-title-subheading">

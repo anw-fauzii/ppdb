@@ -16,8 +16,17 @@ class Pendaftaran extends Model
         'user_id',
         'tahun_ajaran_id',
         'kategori_id',
-        'pembayaran',
+        'bukti_pembayaran',
+        'status',
     ];
+
+    public function tahun_ajaran(){
+        return $this->belongsTo(TahunAjaran::class);
+    }
+
+    public function kategori(){
+        return $this->belongsTo(Kategori::class);
+    }
 
     public static function boot()
     {
