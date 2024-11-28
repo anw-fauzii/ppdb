@@ -28,6 +28,10 @@ class Pendaftaran extends Model
         return $this->belongsTo(Kategori::class);
     }
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     public static function boot()
     {
         parent::boot();

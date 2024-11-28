@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminPendaftaranController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataOrtuController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TahunAjaranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('/dokumen', DokumenController::class);
     Route::resource('/daftar', DaftarController::class);
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::resource('/tahun-ajaran', TahunAjaranController::class);
+    Route::resource('/kategori', KategoriController::class);
+    Route::get('/data-pendaftaran', [AdminPendaftaranController::class,'index'])->name('data-pendaftaran.index');
+    Route::get('/data-pendaftaran/{id}', [AdminPendaftaranController::class,'show'])->name('data-pendaftaran.show');
+    Route::get('/data-detail', [AdminPendaftaranController::class,'detail'])->name('data-pendaftaran.detail');
 });
 
 

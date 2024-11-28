@@ -171,7 +171,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="position-relative form-group">
-                            <label for="pendidikan_ibu">Pendidikan Ayah</label>
+                            <label for="pendidikan_ibu">Pendidikan Ibu</label>
                             <select name="pendidikan_ibu" id="pendidikan_ibu" class="form-control @error('pendidikan_ibu') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Jenjang Pendidikan --</option>
                                 <option value="SD" {{ old('pendidikan_ibu') == 'SD' || $formulir->pendidikan_ibu == 'SD' ? 'selected' : '' }}>SD</option>
@@ -196,7 +196,7 @@
                     
                     <div class="col-md-4">
                         <div class="position-relative form-group">
-                            <label for="pekerjaan_ibu">Pekerjaan Ayah</label>
+                            <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
                             <select name="pekerjaan_ibu" id="pekerjaan_ibu" class="form-control @error('pekerjaan_ibu') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Pekerjaan --</option>
                                 <option value="PNS" {{ old('pekerjaan_ibu') == 'PNS' || $formulir->pekerjaan_ibu == 'PNS' ? 'selected' : '' }}>PNS</option>
@@ -227,7 +227,7 @@
                     
                     <div class="col-md-4">
                         <div class="position-relative form-group">
-                            <label for="penghasilan_ibu">Penghasilan Bulanan Ayah</label>
+                            <label for="penghasilan_ibu">Penghasilan Bulanan Ibu</label>
                             <select name="penghasilan_ibu" id="penghasilan_ibu" class="form-control @error('penghasilan_ibu') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Penghasilan --</option>
                                 <option value="1" {{ old('penghasilan_ibu') == '1' || $formulir->penghasilan_ibu == '1' ? 'selected' : '' }}>Kurang dari Rp. 1.000.000</option>
@@ -277,7 +277,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="position-relative form-group">
-                            <label for="pendidikan_wali">Pendidikan Ayah</label>
+                            <label for="pendidikan_wali">Pendidikan Wali</label>
                             <select name="pendidikan_wali" id="pendidikan_wali" class="form-control @error('pendidikan_wali') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Jenjang Pendidikan --</option>
                                 <option value="SD" {{ old('pendidikan_wali') == 'SD' || $formulir->pendidikan_wali == 'SD' ? 'selected' : '' }}>SD</option>
@@ -302,7 +302,7 @@
                     
                     <div class="col-md-4">
                         <div class="position-relative form-group">
-                            <label for="pekerjaan_wali">Pekerjaan Ayah</label>
+                            <label for="pekerjaan_wali">Pekerjaan Wali</label>
                             <select name="pekerjaan_wali" id="pekerjaan_wali" class="form-control @error('pekerjaan_wali') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Pekerjaan --</option>
                                 <option value="PNS" {{ old('pekerjaan_wali') == 'PNS' || $formulir->pekerjaan_wali == 'PNS' ? 'selected' : '' }}>PNS</option>
@@ -333,7 +333,7 @@
                     
                     <div class="col-md-4">
                         <div class="position-relative form-group">
-                            <label for="penghasilan_wali">Penghasilan Bulanan Ayah</label>
+                            <label for="penghasilan_wali">Penghasilan Bulanan Wali</label>
                             <select name="penghasilan_wali" id="penghasilan_wali" class="form-control @error('penghasilan_wali') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Penghasilan --</option>
                                 <option value="1" {{ old('penghasilan_wali') == '1' || $formulir->penghasilan_wali == '1' ? 'selected' : '' }}>Kurang dari Rp. 1.000.000</option>

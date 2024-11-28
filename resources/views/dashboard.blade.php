@@ -21,10 +21,17 @@
         </div> 
     </div>
     <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                Selamat ananda telah mendaftarkan 
+                </div>
+            </div>
+        </div>
         <div class="col-md-7">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Alur Penerimaan peserta didik baru</h5>
+                    <h5 class="card-title">Alur Penerimaan peserta didik baru {{$tahun_ajaran->nama_tahun_ajaran}}</h5>
                     <div class="vertical-time-icons vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
                         <div class="vertical-timeline-item vertical-timeline-element">
                             <div>

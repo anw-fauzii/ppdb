@@ -39,8 +39,35 @@
                             Beranda
                     </a>
                 </li>
+                @role('admin')
                 <li>
-                    <a href="{{route('formulir.index')}}" class="{{(request()->is('formulir') || request()->is('formulir/create')) ? 'mm-active' : ''}}">
+                    <a href="{{route('tahun-ajaran.index')}}" class="{{(request()->is('tahun-ajaran') || request()->is('tahun-ajaran/create')) ? 'mm-active' : ''}}">
+                        <i class="metismenu-icon pe-7s-date"></i>
+                            Tahun Ajaran
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('kategori.index')}}" class="{{(request()->is('kategori') || request()->is('kategori/create')) ? 'mm-active' : ''}}">
+                        <i class="metismenu-icon pe-7s-study"></i>
+                            Tingkat Sekolah
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('data-pendaftaran.index')}}" class="{{(request()->is('data-pendaftaran') || request()->is('data-pendaftaran/*')) ? 'mm-active' : ''}}">
+                        <i class="metismenu-icon pe-7s-mail-open-file"></i>
+                            Formulir Pendaftaran
+                    </a>
+                </li>
+                @endrole
+                @role('user')
+                <li>
+                    <a href="{{route('daftar.index')}}" class="{{(request()->is('daftar') || request()->is('daftar/create')) ? 'mm-active' : ''}}">
+                        <i class="metismenu-icon pe-7s-cloud-upload"></i>
+                            Pendaftaran
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('formulir.index')}}" class="{{(request()->is('formulir') || request()->is('formulir/create') || request()->is('data-ortu')) ? 'mm-active' : ''}}">
                         <i class="metismenu-icon pe-7s-note2"></i>
                             Formulir Pendaftaran
                     </a>
@@ -51,12 +78,7 @@
                             Dokumen Pendukung
                     </a>
                 </li>
-                <li>
-                    <a href="{{route('daftar.index')}}" class="{{(request()->is('daftar') || request()->is('daftar/create')) ? 'mm-active' : ''}}">
-                        <i class="metismenu-icon pe-7s-cloud-upload"></i>
-                            Pendaftaran
-                    </a>
-                </li>
+                @endrole
                 <li>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"><i class="metismenu-icon pe-7s-power"></i>Keluar</a>

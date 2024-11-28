@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="position-relative form-group">
-                            <label for="agama">Jenis Kelamin</label>
+                            <label for="agama">Agama</label>
                             <select name="agama" id="agama" class="form-control @error('agama') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Agama --</option>
                                 <option value="1" {{ (old('agama') == '1' || $formulir->agama == '1') ? 'selected' : '' }}>Islam</option>

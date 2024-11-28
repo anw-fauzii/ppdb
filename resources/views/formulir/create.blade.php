@@ -32,7 +32,7 @@
                     <div class="col-md-4">
                         <div class="position-relative form-group">
                             <label for="nik" class="">NIK Ananda</label>
-                            <input name="nik" id="nik" placeholder="Masukkan NIK Annda" type="number" class="form-control @error('nik') is-invalid @enderror" value="{{ old('nik') }}">
+                            <input name="nik" id="nik" placeholder="Masukkan NIK Ananda" type="number" class="form-control @error('nik') is-invalid @enderror" value="{{ old('nik') }}">
                             @error('nik')
                                 <div class="invalid-feedback" style="font-style: italic; font-size: 0.7rem;">
                                     {{ strtolower($message) }}
@@ -76,7 +76,7 @@
                     <div class="col-md-3">
                         <div class="position-relative form-group">
                             <label for="jumlah_saudara" class="">Jumlah Saudara</label>
-                            <input name="jumlah_saudara" id="jumlah_saudara" placeholder="Masukkan Anak Keberapa" type="number" class="form-control @error('jumlah_saudara') is-invalid @enderror" value="{{ old('jumlah_saudara') }}">
+                            <input name="jumlah_saudara" id="jumlah_saudara" placeholder="Masukkan Jumlah Saudara" type="number" class="form-control @error('jumlah_saudara') is-invalid @enderror" value="{{ old('jumlah_saudara') }}">
                             @error('jumlah_saudara')
                                 <div class="invalid-feedback" style="font-style: italic; font-size: 0.7rem;">
                                     {{ strtolower($message) }}
@@ -87,7 +87,7 @@
                     <div class="col-md-3">
                         <div class="position-relative form-group">
                             <label for="tinggi_badan" class="">Tinggi Badan</label>
-                            <input name="tinggi_badan" id="tinggi_badan" placeholder="Masukkan Anak Keberapa" type="number" class="form-control @error('tinggi_badan') is-invalid @enderror" value="{{ old('tinggi_badan') }}">
+                            <input name="tinggi_badan" id="tinggi_badan" placeholder="Masukkan Tinggi Badan" type="number" class="form-control @error('tinggi_badan') is-invalid @enderror" value="{{ old('tinggi_badan') }}">
                             @error('tinggi_badan')
                                 <div class="invalid-feedback" style="font-style: italic; font-size: 0.7rem;">
                                     {{ strtolower($message) }}
@@ -98,7 +98,7 @@
                     <div class="col-md-3">
                         <div class="position-relative form-group">
                             <label for="berat_badan" class="">Berat Badan</label>
-                            <input name="berat_badan" id="berat_badan" placeholder="Masukkan Anak Keberapa" type="number" class="form-control @error('berat_badan') is-invalid @enderror" value="{{ old('berat_badan') }}">
+                            <input name="berat_badan" id="berat_badan" placeholder="Masukkan Berat Badan" type="number" class="form-control @error('berat_badan') is-invalid @enderror" value="{{ old('berat_badan') }}">
                             @error('berat_badan')
                                 <div class="invalid-feedback" style="font-style: italic; font-size: 0.7rem;">
                                     {{ strtolower($message) }}
@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="position-relative form-group">
-                            <label for="agama">Jenis Kelamin</label>
+                            <label for="agama">Agama</label>
                             <select name="agama" id="agama" class="form-control @error('agama') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Agama --</option>
                                 <option value="1" {{ old('agama') == '1' ? 'selected' : '' }}>Islam</option>

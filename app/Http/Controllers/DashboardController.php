@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index(){
-        $tahun_ajaran = TahunAjaran::latest()->first();
+        $tahun_ajaran = TahunAjaran::latest()->firstOrFail();
         $pendaftaran = Pendaftaran::where('tahun_ajaran_id', $tahun_ajaran->id)->get();
-        return view('dashboard', compact('pendaftaran'));
+        return view('dashboard', compact('pendaftaran', 'tahun_ajaran'));
     }
 }

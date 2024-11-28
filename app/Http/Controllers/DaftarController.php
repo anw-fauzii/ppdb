@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
+use App\Models\Formulir;
 use App\Models\Kategori;
 use App\Models\Pendaftaran;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-use function Laravel\Prompts\text;
 
 class DaftarController extends Controller
 {
@@ -19,7 +19,7 @@ class DaftarController extends Controller
     {
         $tahun_ajarana = TahunAjaran::latest()->whereStatus(TRUE)->first();
         if(!$tahun_ajarana){
-            return redirect()->route('dashboard')->with('warning', 'Mohon maaf, PPDB tahun ini sudah ditutup!');
+            return redirect()->route('dashboard')->with('warning', 'Mohon maaf, PPDB tahun ini belum dibuka!');
         }else{
             $tahun_ajaran = TahunAjaran::latest()->first();
             $kategori = Kategori::whereStatus(TRUE)->get();

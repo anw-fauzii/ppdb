@@ -52,6 +52,7 @@ class DokumenController extends Controller
         $model->ktp_ayah = $request->file('ktp_ayah')->store('FotoKTPAyah', 'public');
         $model->ktp_ibu = $request->file('ktp_ibu')->store('FotoKTPIbu', 'public');
         $model->save();
+        return redirect()->route('dokumen.index')->with('success', 'Dokumen Berhasil Disimpan!');
     }
 
     /**

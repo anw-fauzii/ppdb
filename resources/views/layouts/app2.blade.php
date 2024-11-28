@@ -69,7 +69,7 @@
         ],
         });
         $('#myTable2').dataTable({ 
-            "ordering": false,
+            "ordering": true,
             "processing": true,
             "lengthMenu": [
             [ 25, 50, 100, 1000, -1 ],
@@ -77,7 +77,7 @@
         ],
         });
         $('#myTable3').dataTable({ 
-            "ordering": false,
+            "ordering": true,
             "processing": true,
             "serverSide": true,
             "lengthMenu": [
