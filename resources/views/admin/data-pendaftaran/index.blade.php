@@ -49,7 +49,7 @@
                         @forelse ($pendaftaran as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->user->name}}</td>
+                                <td>{{$item->nama}}</td>
                                 <td>{{$item->kategori->nama_kategori}}</td>
                                 <td>{{$item->status}}</td>
                                 <td class="d-flex">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Formulir;
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,8 +14,18 @@ class FormulirController extends Controller
      */
     public function index()
     {
-        $formulir= Formulir::where('user_id', Auth::user()->id)->first();
-        return view('formulir.index', compact('formulir'));
+        $pendaftaran = Pendaftaran::where('user_id', Auth::user()->id)->first();
+        if($pendaftaran){
+            $formulir= Formulir::where('user_id', Auth::user()->id)->first();
+            if($formulir){
+                return view('formulir.index', compact('formulir'));
+            }else{
+                return view('formulir.create');
+            }
+            
+        }else{
+            return redirect()->route('daftar.index')->with('warning', 'Isi terlebih dahulu tingkat pendaftaran');
+        }
     }
 
     /**

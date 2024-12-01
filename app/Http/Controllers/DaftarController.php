@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dokumen;
-use App\Models\Formulir;
 use App\Models\Kategori;
 use App\Models\Pendaftaran;
 use App\Models\TahunAjaran;
@@ -71,14 +69,12 @@ class DaftarController extends Controller
         $tahun_ajaran = TahunAjaran::latest()->first();
         $validated = $request->validate([
             'kategori_id' => 'required',
-            'bukti_pembayaran' => 'required'
         ]);
         $validated['user_id'] = Auth::user()->id;
         $validated['tahun_ajaran_id'] = $tahun_ajaran->id;
         $validated['status'] = "Pending";
-        $validated['bukti_pembayaran'] = $request->file('bukti_pembayaran')->store('BuktiPembayaran', 'public');
         Pendaftaran::create($validated);
-        return redirect()->route('dashboard')->with('success', 'Pendaftaran Berhasil Diajukan!');
+        return redirect()->route('formulir.create')->with('success', 'Jenjang berhasil dipilih!');
     }
 
     /**

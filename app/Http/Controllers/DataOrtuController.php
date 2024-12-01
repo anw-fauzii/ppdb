@@ -39,8 +39,7 @@ class DataOrtuController extends Controller
         $validated['penghasilan_wali'] = $request->penghasilan_wali;
         if ($formulir) {
             $formulir->update($validated);
-
-            return redirect()->route('formulir.index')->with('success', 'Formulir Berhasil disubmit!');
+            return redirect()->route('dokumen.index')->with('success', 'Formulir Berhasil disimpan!');
         } else {
             return redirect()->route('formulir.index')->with('error', 'Data Orang Tua tidak ditemukan!');
         }

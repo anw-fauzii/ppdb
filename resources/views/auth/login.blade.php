@@ -27,15 +27,16 @@
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600 ">{{ __('Remember me') }}</span>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 " href="{{ route('register') }}">
+                    {{ __('Mendaftar Akun?') }}
+                </a>
             </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 " href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 " target="_blank" href="https://wa.me/+6289609592234?text=Halo%2C%20saya%20lupa%20password%20akun%20saya.%20Mohon%20bantuannya%20untuk%20mengatur%20ulang%20password%20saya.%20Berikut%20adalah%20informasi%20yang%20diperlukan%3A%0A%0A-%20Nama%20Pengguna%3A%20[Masukkan%20Nama%20Pengguna]%0A-%20Email%3A%20[Masukkan%20Email]%0A%0ATerima%20kasih%20atas%20bantuannya!">
+                    {{ __('Lupa Password?') }}
                 </a>
             @endif
 

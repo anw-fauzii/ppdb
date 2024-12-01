@@ -111,6 +111,17 @@
         toastr.warning('{{ Session::get('warning') }}');
     @endif
     </script>
+    @if(session('status') && session('status') == 'success')
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Sukses!',
+                text: '{{ session('message') }}',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        </script>
+    @endif
     @yield('js')
 </body>
 </html>

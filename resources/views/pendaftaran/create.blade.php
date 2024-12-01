@@ -61,17 +61,6 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="position-relative form-group">
-                            <label for="bukti_pembayaran">Bukti Pembayaran</label>
-                            <input type="file" id="myDropify" class="border" name="bukti_pembayaran"/>
-                            @if ($errors->has('bukti_pembayaran'))
-                                <div id="bukti_pembayaran-error" class="error text-danger pt-1" for="bukti_pembayaran" style="display: block;">
-                                    <strong>{{ $errors->first('bukti_pembayaran') }}</strong>
-                                </div>
-                            @endif  
-                        </div>
-                    </div>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary" name="signup" value="Simpan">Simpan</button>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
+use App\Models\Formulir;
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,11 +15,17 @@ class DokumenController extends Controller
      */
     public function index()
     {
-        $dokumen= Dokumen::where('user_id', Auth::user()->id)->first();
-        if($dokumen){
-            return view('dokumen.index', compact('dokumen'));
+        $pendaftaran = Pendaftaran::where('user_id', Auth::user()->id)->first();
+        $formulir = Formulir::where('user_id', Auth::user()->id)->first();
+        if(!$pendaftaran || !$formulir){
+            return redirect()->route('daftar.index')->with('warning', 'Isi terlebih dahulu tingkat pendaftaran');
         }else{
-            return view('dokumen.create');
+            $dokumen= Dokumen::where('user_id', Auth::user()->id)->first();
+            if($dokumen){
+                return view('dokumen.index', compact('dokumen'));
+            }else{
+                return view('dokumen.create');
+            }
         }
     }
 
@@ -52,7 +60,8 @@ class DokumenController extends Controller
         $model->ktp_ayah = $request->file('ktp_ayah')->store('FotoKTPAyah', 'public');
         $model->ktp_ibu = $request->file('ktp_ibu')->store('FotoKTPIbu', 'public');
         $model->save();
-        return redirect()->route('dokumen.index')->with('success', 'Dokumen Berhasil Disimpan!');
+        return redirect()->route('dashboard')->with('warning', 'Pendaftaran Berhasil disubmit');
+
     }
 
     /**

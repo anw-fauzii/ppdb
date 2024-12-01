@@ -302,7 +302,7 @@
                     
                     <div class="col-md-4">
                         <div class="position-relative form-group">
-                            <label for="pekerjaan_wali">Pekerjaan Wali</label>
+                        <label for="pekerjaan_wali">Pekerjaan Wali</label>
                             <select name="pekerjaan_wali" id="pekerjaan_wali" class="form-control @error('pekerjaan_wali') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Pekerjaan --</option>
                                 <option value="PNS" {{ old('pekerjaan_wali') == 'PNS' || $formulir->pekerjaan_wali == 'PNS' ? 'selected' : '' }}>PNS</option>
