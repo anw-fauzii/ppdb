@@ -9,6 +9,7 @@ use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TahunAjaranController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +40,15 @@ Route::middleware('auth')->group(function () {
     Route::resource('/kategori', KategoriController::class);
     Route::get('/data-pendaftaran', [AdminPendaftaranController::class,'index'])->name('data-pendaftaran.index');
     Route::get('/data-pendaftaran/{id}', [AdminPendaftaranController::class,'show'])->name('data-pendaftaran.show');
-    Route::get('/data-detail', [AdminPendaftaranController::class,'detail'])->name('data-pendaftaran.detail');
+    Route::get('/data-pendaftaran-bayar/{id}', [AdminPendaftaranController::class, 'bayar'])->name('data-pendaftaran.bayar');
+    Route::put('/data-pendaftaran-bayar/{id}', [AdminPendaftaranController::class, 'edit'])->name('data-pendaftaran.edit');
+    Route::get('/data-detail/{id}', [AdminPendaftaranController::class,'detail'])->name('data-pendaftaran.detail');
+    Route::get('/export-formulir', [FormulirController::class, 'exportFormulir'])->name('export-formulir');
+});
+
+Route::get('/optimize', function () {
+    $exitCode = Artisan::call('optimize');
+    return '<h1>Clear Config cleared</h1>';
 });
 
 

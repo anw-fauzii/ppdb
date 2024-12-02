@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\FormulirExport;
 use App\Models\Formulir;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FormulirController extends Controller
 {
@@ -58,7 +60,6 @@ class FormulirController extends Controller
             'nik' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'agama' => 'required',
             'alamat' => 'required',
             'rw' => 'required',
             'rt' => 'required',
@@ -74,6 +75,7 @@ class FormulirController extends Controller
             'whatsapp' => 'required',
         ]);
         $validated['user_id'] = Auth::user()->id;
+        $validated['agama'] = "1";
         Formulir::create($validated);
         return redirect()->route('data-ortu.index')->with('success', 'Sekarang isi identisas Orangtua/Wali');
     }
@@ -110,7 +112,6 @@ class FormulirController extends Controller
             'nik' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'agama' => 'required',
             'alamat' => 'required',
             'rw' => 'required',
             'rt' => 'required',
@@ -126,6 +127,7 @@ class FormulirController extends Controller
             'whatsapp' => 'required',
         ]);
         $formulir = Formulir::where('user_id', Auth::user()->id)->firstOrFail();
+        $validated['agama'] = "1";
         $formulir->update($validated);
         return redirect()->route('data-ortu.index')->with('success', 'Sekarang isi identisas Orangtua/Wali');
     }
@@ -136,5 +138,10 @@ class FormulirController extends Controller
     public function destroy(Formulir $formulir)
     {
         //
+    }
+
+    public function exportFormulir()
+    {
+        return Excel::download(new FormulirExport, 'formulir_data.xlsx');
     }
 }

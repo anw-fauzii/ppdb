@@ -17,13 +17,16 @@ class DokumenController extends Controller
     {
         $pendaftaran = Pendaftaran::where('user_id', Auth::user()->id)->first();
         $formulir = Formulir::where('user_id', Auth::user()->id)->first();
-        if(!$pendaftaran || !$formulir){
+        if(!$pendaftaran && !$formulir){
             return redirect()->route('daftar.index')->with('warning', 'Isi terlebih dahulu tingkat pendaftaran');
-        }else{
-            $dokumen= Dokumen::where('user_id', Auth::user()->id)->first();
-            if($dokumen){
+        } elseif (!$formulir) {
+            // Jika formulir tidak ada, beri peringatan atau alihkan ke halaman yang relevan
+            return redirect()->route('formulir.index')->with('warning', 'Formulir belum diisi');
+        } else {
+            $dokumen = Dokumen::where('user_id', Auth::user()->id)->first();
+            if($dokumen) {
                 return view('dokumen.index', compact('dokumen'));
-            }else{
+            } else {
                 return view('dokumen.create');
             }
         }
@@ -60,7 +63,7 @@ class DokumenController extends Controller
         $model->ktp_ayah = $request->file('ktp_ayah')->store('FotoKTPAyah', 'public');
         $model->ktp_ibu = $request->file('ktp_ibu')->store('FotoKTPIbu', 'public');
         $model->save();
-        return redirect()->route('dashboard')->with('warning', 'Pendaftaran Berhasil disubmit');
+        return redirect()->route('dashboard')->with('success', 'Pendaftaran Berhasil disubmit');
 
     }
 

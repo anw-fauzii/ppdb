@@ -51,10 +51,17 @@
                                 <td>{{$item->tahun_ajaran->nama_tahun_ajaran}}</td>
                                 <td>{{$item->kategori->nama_kategori}}</td>
                                 <td>
-                                    <button type="button" class="btn mr-1 mb-1 btn-primary" data-toggle="modal"
-                                        data-target="#buktiPembayaran{{$item->id}}">
-                                        Lihat
-                                    </button>
+                                    @if ($item->bukti_pembayaran)
+                                        <button type="button" class="btn mr-1 mb-1 btn-primary" data-toggle="modal"
+                                            data-target="#buktiPembayaran{{$item->id}}">
+                                            Lihat
+                                        </button>
+                                    @else
+                                        <a href="{{route('daftar.create')}}" class="btn btn-primary mb-3">
+                                            Bukti Pembayaran
+                                        </a>
+                                    @endif
+                                    
                                 </td>
                                 <td>
                                     @if ($item->status == "Pending")

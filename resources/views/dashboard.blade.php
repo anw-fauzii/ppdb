@@ -28,7 +28,7 @@
                         Terima Kasih telah melakukan proses pendaftaran Peserta Didik Baru Prima Insani Tahun Pelajaran 2025-2026.
                         <br><br>
                         Segera lakukan pembayaran pendaftaran (PG TK A, TK B, SD Internal sebesar Rp. 300.000,- SD Eksternal Rp. 450.000,-) 
-                        Pembayaran melalui transfer ke rekening BJB 0133866248100 atas nama Yayasan Pendidikan Prima Insani 
+                        Pembayaran melalui transfer ke rekening BJB <strong>0133866248100</strong> atas nama Yayasan Pendidikan Prima Insani 
                         (wajib konfirmasi pembayaran ke WhatsApp bendahara 081318490859).
                         <br><br>
                         Tahap selanjutnya mohon menunggu jadwal observasi calon siswa & wawancara calon orangtua siswa yg akan diinfokan 
@@ -120,6 +120,7 @@
         </div>
         <div class="col-md-5">
             <div class="row">
+                @role('admin')
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
@@ -147,6 +148,63 @@
                         </div>
                     </div>
                 </div>
+                @endrole
+                @role('user')
+                <div class="col-md-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Progres Pendaftaran</h5>
+                            <div class="table-responsive">
+                                <table class="table table striped">
+                                    <tr>
+                                        <th>1. Memilih Jenjang Sekolah</th>
+                                        <td>
+                                            @if ($daftar)
+                                                <a href="{{route('daftar.index')}}" class="btn-sm btn-pill btn btn-success">Selesai</a>
+                                            @else
+                                                <a href="{{route('daftar.index')}}" class="btn-sm btn-pill btn btn-warning">Belum diisi</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>2. Mengisi Formulir</th>
+                                        <td>
+                                            @if ($formulir)
+                                                <a href="{{route('formulir.index')}}" class="btn-sm btn-pill btn btn-success">Selesai</a>
+                                            @else
+                                                <a href="{{route('formulir.index')}}" class="btn-sm btn-pill btn btn-warning">Belum diisi</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>3. Upload Dokumen</th>
+                                        <td>
+                                            @if ($dokumen)
+                                                <a href="{{route('dokumen.index')}}" class="btn-sm btn-pill btn btn-success">Selesai</a>
+                                            @else
+                                                <a href="{{route('dokumen.index')}}" class="btn-sm btn-pill btn btn-warning">Belum diisi</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>4. Konfirmasi Pembayaran</th>
+                                        <td>
+                                            @if ($daftar && $daftar->bukti_pembayaran)
+                                                <a href="{{route('daftar.index')}}" class="btn-sm btn-pill btn btn-success">Selesai</a>
+                                            @else
+                                                <a href="{{route('daftar.index')}}" class="btn-sm btn-pill btn btn-warning">Belum diisi</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">*Harap selesaikan semua progres pendaftaran supaya bisa terekap oleh panitia PPDB. Terima kasih.</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endrole
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
                         <div class="card-body">

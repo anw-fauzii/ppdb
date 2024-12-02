@@ -29,32 +29,15 @@
             ISI Formulir
         </div>
         <div class="card-body">
-            <form  method="post" action="{{route('daftar.update', $pendaftaran->id)}}" enctype="multipart/form-data">
+            <form  method="post" action="{{route('data-pendaftaran.edit', $pendaftaran->id)}}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-row">
                     <div class="col-md-12">
                         <div class="position-relative form-group">
-                            <label for="tahun_ajaran_id" class="">Tahun Ajaran</label>
-                            <input name="tahun_ajaran_id" disabled ="tahun_ajaran_id" placeholder="Masukkan NIK Ayah" type="text" class="form-control @error('tahun_ajaran_id') is-invalid @enderror" value="{{ $tahun_ajaran->nama_tahun_ajaran }}">
+                            <label for="tahun_ajaran_id" class="">Nama Siswa</label>
+                            <input name="tahun_ajaran_id" disabled ="tahun_ajaran_id" placeholder="Masukkan NIK Ayah" type="text" class="form-control @error('tahun_ajaran_id') is-invalid @enderror" value="{{ $pendaftaran->formulir->nama_lengkap}}">
                             @error('tahun_ajaran_id')
-                                <div class="invalid-feedback" style="font-style: italic; font-size: 0.7rem;">
-                                    {{ strtolower($message) }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="position-relative form-group">
-                            <label for="kategori_id">Pilih Tingkat Sekolah</label>
-                            <select name="kategori_id" id="kategori_id" class="form-control @error('kategori_id') is-invalid @enderror">
-                                <option value="" selected disabled>-- Pilih Tingkat Sekolah --</option>
-                                @foreach ($kategori as $item)
-                                    <option value="{{$item->id}}" {{ (old('kategori_id') == $item->id || $pendaftaran->kategori_id == $item->id) ? 'selected' : '' }}>{{$item->nama_kategori}}</option>
-                                @endforeach
-                            </select>
-                    
-                            @error('kategori_id')
                                 <div class="invalid-feedback" style="font-style: italic; font-size: 0.7rem;">
                                     {{ strtolower($message) }}
                                 </div>

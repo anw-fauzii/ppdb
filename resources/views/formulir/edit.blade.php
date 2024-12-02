@@ -109,26 +109,6 @@
                     </div>
                     <div class="col-md-3">
                         <div class="position-relative form-group">
-                            <label for="agama">Agama</label>
-                            <select name="agama" id="agama" class="form-control @error('agama') is-invalid @enderror">
-                                <option value="" selected disabled>-- Pilih Agama --</option>
-                                <option value="1" {{ (old('agama') == '1' || $formulir->agama == '1') ? 'selected' : '' }}>Islam</option>
-                                <option value="2" {{ (old('agama') == '2' || $formulir->agama == '2') ? 'selected' : '' }}>Kristen</option>
-                                <option value="3" {{ (old('agama') == '3' || $formulir->agama == '3') ? 'selected' : '' }}>Katolik</option>
-                                <option value="4" {{ (old('agama') == '4' || $formulir->agama == '4') ? 'selected' : '' }}>Hindu</option>
-                                <option value="5" {{ (old('agama') == '5' || $formulir->agama == '5') ? 'selected' : '' }}>Budha</option>
-                                <option value="6" {{ (old('agama') == '6' || $formulir->agama == '6') ? 'selected' : '' }}>Khonghuchu</option>
-                            </select>
-                        
-                            @error('agama')
-                                <div class="invalid-feedback" style="font-style: italic; font-size: 0.7rem;">
-                                    {{ strtolower($message) }}
-                                </div>
-                            @enderror
-                        </div>                        
-                    </div>
-                    <div class="col-md-3">
-                        <div class="position-relative form-group">
                             <label for="jenis_kelamin">Jenis Kelamin</label>
                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
                                 <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
@@ -164,7 +144,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="position-relative form-group">
                             <label for="alamat" class="">Alamat</label>
                             <input name="alamat" id="alamat" placeholder="Masukkan Alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" value="{{ $formulir->alamat ?? old('alamat') }}">
@@ -175,7 +155,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-3">
                         <div class="position-relative form-group">
                             <label for="rt" class="">RT</label>
                             <input name="rt" id="rt" placeholder="Masukkan RT" type="number" class="form-control @error('rt') is-invalid @enderror" value="{{ $formulir->rt ?? old('rt') }}">
@@ -186,7 +166,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-3">
                         <div class="position-relative form-group">
                             <label for="rw" class="">RW</label>
                             <input name="rw" id="rw" placeholder="Masukkan RW" type="number" class="form-control @error('rw') is-invalid @enderror" value="{{ $formulir->rw ?? old('rw') }}">

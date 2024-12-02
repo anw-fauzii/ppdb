@@ -9,14 +9,6 @@
                     <th colspan="2" class="text-center"><img src="{{ asset('storage/user.png') }}" width="300rem" alt="User Image">
                     </th>
                 </tr>
-                <tr>
-                    <td>NIK</td>
-                    <td>: {{$formulir->nik}}</td>
-                </tr>
-                <tr>
-                    <td>Nama Lengkap</td>
-                    <td>: {{$formulir->nama_lengkap}}</td>
-                </tr>
             </tbody>
         </table>
     </div>

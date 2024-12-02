@@ -34,6 +34,9 @@
                 <li><a href="{{route('data-pendaftaran.show', $item->id)}}" class="dropdown-item">{{$item->nama_tahun_ajaran}}</a></li>
                 @endforeach
             </ul> 
+            <a href="{{route('export-formulir')}}" class="btn btn-warning mb-3">
+                <i class="metismenu-icon pe-7s-print"></i> DOWNLOAD
+            </a>
             <div class="table-responsive">
                 <table class="mb-0 table table-hover table-striped" id="myTable2">
                     <thead>
@@ -49,14 +52,20 @@
                         @forelse ($pendaftaran as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->nama}}</td>
+                                @if ($item->formulir)
+                                    <td>{{ $item->formulir->nama_lengkap }}</td>
+                                @else
+                                    <td>--</td>
+                                @endif
                                 <td>{{$item->kategori->nama_kategori}}</td>
                                 <td>{{$item->status}}</td>
                                 <td class="d-flex">
-                                    <button type="button" class="btn btn-sm mr-1 btn-primary" data-toggle="modal"
-                                        data-target="#buktiPembayaran">
-                                        <i class="pe-7s-diskette" style="font-size: 1rem;"></i>
-                                    </button>
+                                    @if ($item->bukti_pembayaran)
+                                        <button type="button" class="btn btn-sm mr-1 btn-primary" data-toggle="modal"
+                                            data-target="#buktiPembayaran{{$item->id}}">
+                                            <i class="pe-7s-diskette" style="font-size: 1rem;"></i>
+                                        </button>
+                                    @endif
                                     @foreach ($dokumen->where('user_id', $item->user_id) as $dok)
                                         <button type="button" class="btn btn-sm mr-1 btn-success" data-toggle="modal"
                                             data-target="#dokumen{{$dok->id}}">
@@ -64,7 +73,10 @@
                                         </button>
                                         @include('admin.data-pendaftaran.modalFoto')
                                     @endforeach
-                                    <a href="{{ route('data-pendaftaran.detail') }}" class="btn btn-sm btn-warning"><i class="pe-7s-note" style="font-size: 1rem;"></i></a>
+                                    <a href="{{ route('data-pendaftaran.detail', $item->user_id) }}" class="btn btn-sm mr-1  btn-warning"><i class="pe-7s-note" style="font-size: 1rem;"></i></a>
+                                    @if (!$item->bukti_pembayaran)
+                                        <a href="{{ route('data-pendaftaran.bayar', $item->id) }}" class="btn btn-sm btn-info"><i class="pe-7s-wallet" style="font-size: 1rem;"></i></a>
+                                    @endif
                                 </td>
                             </tr>
                             @include('admin.data-pendaftaran.modalPembayaran')
