@@ -34,9 +34,14 @@
                 <li><a href="{{route('data-pendaftaran.show', $item->id)}}" class="dropdown-item">{{$item->nama_tahun_ajaran}}</a></li>
                 @endforeach
             </ul> 
-            <a href="{{route('export-formulir')}}" class="btn btn-warning mb-3">
+            <button class="btn btn-warning dropdown mb-3" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="metismenu-icon pe-7s-print"></i> DOWNLOAD
-            </a>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    @foreach($kategori as $item)
+                        <li><a href="{{route('export-formulir', $item->id)}}" class="dropdown-item">{{$item->nama_kategori}}</a></li>
+                    @endforeach
+                </ul>
             <div class="table-responsive">
                 <table class="mb-0 table table-hover table-striped" id="myTable2">
                     <thead>

@@ -51,7 +51,7 @@
           <li><a href="#hero" class="active">Dashboard</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#features">Kerjasama</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#faq">Brosur & Biaya</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -75,7 +75,9 @@
           <div class="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
             <h3>Selamat Datang di</h3>
             <h1>PPDB Prima Insani</h1>
-            <p style="margin-top: -0.5rem;">Mari bergabung bersama kami untuk menjadi generasi berakhlak mulia dan berprestasi</p>
+            <p style="margin-top: -0.5rem;">Mari bergabung dengan kami di Prima Insani, membangun sinergi tri pusat pendidikan (keluarga, sekolah dan masyarakat) dalam mengembangkan generasi berakhlak mulia dan berprestasi.</p>
+            <p style="margin-top: -0.5rem;">Pendaftaran PPDB SD GIS Prima Insani TP. 2025-2026 untuk internal & eksternal ( 2 s.d. 5 Desember 2024)<br>
+Pendaftaran PPDB PG TK Islam Plus Prima Insani TP. 2025-2026 (dibuka mulai tanggal 8 Januari 2025)</p>
             <div class="d-flex">
               <a href="{{route('login')}}" class="btn-get-started">Daftar Sekarang</a>
             </div>
@@ -185,7 +187,7 @@
           </script>
           <div class="swiper-wrapper">
             @php
-                for ($i = 1; $i < 16; $i++):
+                for ($i = 1; $i < 17; $i++):
             @endphp 
               <div class="swiper-slide">
                 <div class="testimonial-item">
@@ -321,7 +323,7 @@
               <i class="bi bi-whatsapp flex-shrink-0"></i>
               <div>
                 <h3>Whatsapp</h3>
-                <p>+1 5589 55488 55</p>
+                <p>+62896-2450-2559 (Chat Only)</p>
               </div>
             </div><!-- End Info Item -->
       
@@ -329,7 +331,7 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email</h3>
-                <p>yayasan.primainsani@gmail.com</p>
+                <p>ppdb.primainsani@gmail.com</p>
               </div>
             </div><!-- End Info Item -->
           </div>
@@ -357,9 +359,9 @@
         </div>
         <div class="col-lg-2 col-md-6 footer-about">
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@prima.insani"><i class="bi bi-tiktok"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href="https://www.instagram.com/prima.insani"><i class="bi bi-instagram"></i></a>
             <a href=""><i class="bi bi-youtube"></i></a>
           </div>
         </div>

@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/data-pendaftaran-bayar/{id}', [AdminPendaftaranController::class, 'bayar'])->name('data-pendaftaran.bayar');
     Route::put('/data-pendaftaran-bayar/{id}', [AdminPendaftaranController::class, 'edit'])->name('data-pendaftaran.edit');
     Route::get('/data-detail/{id}', [AdminPendaftaranController::class,'detail'])->name('data-pendaftaran.detail');
-    Route::get('/export-formulir', [FormulirController::class, 'exportFormulir'])->name('export-formulir');
+    Route::get('/export-formulir/{id}', [FormulirController::class, 'exportFormulir'])->name('export-formulir');
 });
 
 Route::get('/optimize', function () {

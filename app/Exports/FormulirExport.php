@@ -8,12 +8,19 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class FormulirExport implements FromCollection, WithHeadings
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    
+    protected $kategoriId;
+
+    public function __construct($kategoriId)
+    {
+        $this->kategoriId = $kategoriId;
+    }
+
     public function collection()
     {
-        return Formulir::all();
+        return Formulir::whereHas('pendaftaran', function ($query) {
+            $query->where('kategori_id', $this->kategoriId);
+        })->get();
     }
 
     public function headings(): array

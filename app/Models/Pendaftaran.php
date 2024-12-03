@@ -34,7 +34,7 @@ class Pendaftaran extends Model
 
     public function formulir()
     {
-        return $this->hasOne(Formulir::class, 'user_id', 'user_id'); 
+        return $this->belongsTo(Formulir::class, 'user_id', 'user_id');
     }
 
     public function dokumen()

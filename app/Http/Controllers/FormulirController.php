@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\FormulirExport;
 use App\Models\Formulir;
+use App\Models\Kategori;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -140,8 +141,9 @@ class FormulirController extends Controller
         //
     }
 
-    public function exportFormulir()
+    public function exportFormulir($id)
     {
-        return Excel::download(new FormulirExport, 'formulir_data.xlsx');
+        $kategori = Kategori::findOrFail($id);
+        return Excel::download(new FormulirExport($id), 'Formulir PPDB_' . $kategori->nama_kategori . '.xlsx');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
 use App\Models\Formulir;
+use App\Models\Kategori;
 use App\Models\Pendaftaran;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class AdminPendaftaranController extends Controller
     public function index()
     {
         $total = TahunAjaran::all();
+        $kategori = Kategori::all();
         $tahun_ajaran = TahunAjaran::latest()->first();
         $pendaftaran = Pendaftaran::where('tahun_ajaran_id', $tahun_ajaran->id)
             ->whereHas('formulir')->whereHas('dokumen')
@@ -27,7 +29,7 @@ class AdminPendaftaranController extends Controller
             }
         }
         $dokumen = Dokumen::all();
-        return view('admin.data-pendaftaran.index', compact('total','pendaftaran', 'dokumen','tahun_ajaran'));
+        return view('admin.data-pendaftaran.index', compact('total','pendaftaran', 'dokumen','tahun_ajaran', 'kategori'));
     }
 
     public function show($id)
