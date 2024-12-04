@@ -71,14 +71,8 @@
                                             <i class="pe-7s-diskette" style="font-size: 1rem;"></i>
                                         </button>
                                     @endif
-                                    @foreach ($dokumen->where('user_id', $item->user_id) as $dok)
-                                        <button type="button" class="btn btn-sm mr-1 btn-success" data-toggle="modal"
-                                            data-target="#dokumen{{$dok->id}}">
-                                            <i class="pe-7s-id" style="font-size: 1rem;"></i>
-                                        </button>
-                                        @include('admin.data-pendaftaran.modalFoto')
-                                    @endforeach
-                                    <a href="{{ route('data-pendaftaran.detail', $item->user_id) }}" class="btn btn-sm mr-1  btn-warning"><i class="pe-7s-note" style="font-size: 1rem;"></i></a>
+                                    <a href="{{ route('pdf-persyaratan', $item->user_id) }}" target="_blank" class="btn btn-sm mr-1 btn-success"><i class="pe-7s-id" style="font-size: 1rem;"></i></a>
+                                    <a href="{{ route('pdf-formulir', $item->user_id) }}" target="_blank" class="btn btn-sm mr-1 btn-warning"><i class="pe-7s-note" style="font-size: 1rem;"></i></a>
                                     @if (!$item->bukti_pembayaran)
                                         <a href="{{ route('data-pendaftaran.bayar', $item->id) }}" class="btn btn-sm btn-info"><i class="pe-7s-wallet" style="font-size: 1rem;"></i></a>
                                     @endif

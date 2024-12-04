@@ -7,6 +7,7 @@ use App\Http\Controllers\DataOrtuController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TahunAjaranController;
 use Illuminate\Support\Facades\Artisan;
@@ -44,6 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/data-pendaftaran-bayar/{id}', [AdminPendaftaranController::class, 'edit'])->name('data-pendaftaran.edit');
     Route::get('/data-detail/{id}', [AdminPendaftaranController::class,'detail'])->name('data-pendaftaran.detail');
     Route::get('/export-formulir/{id}', [FormulirController::class, 'exportFormulir'])->name('export-formulir');
+    Route::get('/pdf-formulir/{id}', [PDFController::class, 'formulir'])->name('pdf-formulir');
+    Route::get('/pdf-persyaratan/{id}', [PDFController::class, 'persyaratan'])->name('pdf-persyaratan');
 });
 
 Route::get('/optimize', function () {
