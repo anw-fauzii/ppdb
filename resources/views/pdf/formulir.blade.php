@@ -19,18 +19,32 @@
             margin-bottom: 5px;
             width: 100%; 
         }
+        .form-row2 {
+            margin-bottom: 5px;
+            width: 100%; 
+        }
 
         .label {
             display: inline-block;
-            width: 25%; /* Adjust label width */
+            width: 20%; /* Adjust label width */
             padding-right: 10px;
         }
 
         .value {
             display: inline-block;
-            width: 70%; /* Adjust value width */
+            width: 75%; /* Adjust value width */
         }
 
+        .label2 {
+            display: inline-block;
+            width: 15%; 
+            padding-right: 10px;
+        }
+        .value2 {
+            display: inline-block;
+            width: 29%; 
+            padding-right: 10px;
+        }
 
         /* Image styling */
         .kop img {
@@ -96,7 +110,7 @@
         </div>
         <div class="form-row">
             <div class="label">Tempat, Tgl Lahir</div>
-            <div class="value">: {{ \Carbon\Carbon::parse($formulir->tanggal_lahir)->format('d M Y') }}</div>
+            <div class="value">: {{$formulir->tempat_lahir}}, {{ \Carbon\Carbon::parse($formulir->tanggal_lahir)->format('d M Y') }}</div>
         </div>
         <div class="form-row">
             <div class="label">Agama</div>
@@ -117,7 +131,7 @@
 
         <h4 style="margin-bottom: 8px">C. Alamat dan Kontak</h4>
         <div class="form-row">
-            <div class="label" style="align-content: center">Alamat</div>
+            <div class="label" style="text-align: ">Alamat</div>
             <div class="value">: {{$formulir->alamat}}, RT {{$formulir->rt}} RW {{$formulir->rw}}, Desa {{$formulir->desa}}, Kecamatan {{$formulir->kecamatan}}, Kabupaten {{$formulir->kabupaten}}, {{$formulir->provinsi}}, {{$formulir->kode_pos}}.</div>
         </div>
         <div class="form-row">
@@ -134,33 +148,43 @@
         </div>
         <div class="form-row">
             <div class="label">Telepon/WA</div>
-            <div class="value">: {{$formulir->telepon}}/{{$formulir->whatsapp}}</div>
+            <div class="value">: {{$formulir->telepon}} / {{$formulir->whatsapp}}</div>
         </div>
 
-        <h4 style="margin-bottom: 8px">D. Data Ayah</h4>
-        <div class="form-row">
-            <div class="label">NIK Ayah</div>
-            <div class="value">: {{$formulir->nik_ayah}}</div>
+        <h4 style="margin-bottom: 8px">D. Data Orangtua</h4>
+        <div class="form-row2">
+            <div class="label2">NIK Ayah</div>
+            <div class="value2">: {{$formulir->nik_ayah}}</div>
+            <div class="label2">NIK Ibu</div>
+            <div class="value2">: {{$formulir->nik_ibu}}</div>
         </div>
         <div class="form-row">
-            <div class="label">Nama Ayah</div>
-            <div class="value">: {{$formulir->nama_ayah}}</div>
+            <div class="label2">Nama Ayah</div>
+            <div class="value2">: {{$formulir->nama_ayah}}</div>
+            <div class="label2">Nama Ibu</div>
+            <div class="value2">: {{$formulir->nama_ibu}}</div>
         </div>
         <div class="form-row">
-            <div class="label">Tahun Lahir</div>
-            <div class="value">: {{$formulir->lahir_ayah}}</div>
+            <div class="label2">Tahun Lahir</div>
+            <div class="value2">: {{$formulir->lahir_ayah}}</div>
+            <div class="label2">Tahun Lahir</div>
+            <div class="value2">: {{$formulir->lahir_ibu}}</div>
         </div>
         <div class="form-row">
-            <div class="label">Pendidikan Terakhir</div>
-            <div class="value">: {{$formulir->pendidikan_ayah}}</div>
+            <div class="label2">Pendidikan</div>
+            <div class="value2">: {{$formulir->pendidikan_ayah}}</div>
+            <div class="label2">Pendidikan</div>
+            <div class="value2">: {{$formulir->pendidikan_ibu}}</div>
         </div>
         <div class="form-row">
-            <div class="label">Pekerjaan</div>
-            <div class="value">: {{$formulir->pekerjaan_ayah}}</div>
+            <div class="label2">Pekerjaan</div>
+            <div class="value2">: {{$formulir->pekerjaan_ayah}}</div>
+            <div class="label2">Pekerjaan</div>
+            <div class="value2">: {{$formulir->pekerjaan_ibu}}</div>
         </div>
         <div class="form-row">
-            <div class="label">Penghasilan</div>
-            <div class="value">
+            <div class="label2">Penghasilan</div>
+            <div class="value2">
                 @if($formulir->penghasilan_ayah == '1')
                     : Kurang dari Rp. 1.000.000
                 @elseif($formulir->penghasilan_ayah == '2')
@@ -171,32 +195,8 @@
                     : Belum dipilih
                 @endif
             </div>
-        </div>
-
-        <h4 style="margin-bottom: 8px">E. Data Ibu</h4>
-        <div class="form-row">
-            <div class="label">NIK Ibu</div>
-            <div class="value">: {{$formulir->nik_ibu}}</div>
-        </div>
-        <div class="form-row">
-            <div class="label">Nama Ibu</div>
-            <div class="value">: {{$formulir->nama_ibu}}</div>
-        </div>
-        <div class="form-row">
-            <div class="label">Tahun Lahir</div>
-            <div class="value">: {{$formulir->lahir_ibu}}</div>
-        </div>
-        <div class="form-row">
-            <div class="label">Pendidikan Terakhir</div>
-            <div class="value">: {{$formulir->pendidikan_ibu}}</div>
-        </div>
-        <div class="form-row">
-            <div class="label">Pekerjaan</div>
-            <div class="value">: {{$formulir->pekerjaan_ibu}}</div>
-        </div>
-        <div class="form-row">
-            <div class="label">Penghasilan</div>
-            <div class="value">
+            <div class="label2">Penghasilan</div>
+            <div class="value2">
                 @if($formulir->penghasilan_ibu == '1')
                     : Kurang dari Rp. 1.000.000
                 @elseif($formulir->penghasilan_ibu == '2')
@@ -208,33 +208,32 @@
                 @endif
             </div>
         </div>
-
         <!-- Data Wali (if exists) -->
         @if($formulir->nama_wali)
-        <h4 style="margin-bottom: 8px">E. Data Wali</h4>
-        <div class="form-row">
-            <div class="label">NIK Wali</div>
-            <div class="value">: {{$formulir->nik_wali}}</div>
+        <h4 style="margin-bottom: 8px">D. Data Wali</h4>
+        <div class="form-row2">
+            <div class="label2">NIK Wali</div>
+            <div class="value2">: {{$formulir->nik_wali}}</div>
         </div>
-        <div class="form-row">
-            <div class="label">Nama Wali</div>
-            <div class="value">: {{$formulir->nama_wali}}</div>
+        <div class="form-row2">
+            <div class="label2">Nama Wali</div>
+            <div class="value2">: {{$formulir->nama_wali}}</div>
         </div>
-        <div class="form-row">
-            <div class="label">Tahun Lahir</div>
-            <div class="value">: {{$formulir->lahir_wali}}</div>
+        <div class="form-row2">
+            <div class="label2">Tahun Lahir</div>
+            <div class="value2">: {{$formulir->lahir_wali}}</div>
         </div>
-        <div class="form-row">
-            <div class="label">Pendidikan Terakhir</div>
-            <div class="value">: {{$formulir->pendidikan_wali}}</div>
+        <div class="form-row2">
+            <div class="label2">Pendidikan</div>
+            <div class="value2">: {{$formulir->pendidikan_wali}}</div>
         </div>
-        <div class="form-row">
-            <div class="label">Pekerjaan</div>
-            <div class="value">: {{$formulir->pekerjaan_wali}}</div>
+        <div class="form-row2">
+            <div class="label2">Pekerjaan</div>
+            <div class="value2">: {{$formulir->pekerjaan_wali}}</div>
         </div>
-        <div class="form-row">
-            <div class="label">Penghasilan</div>
-            <div class="value">
+        <div class="form-row2">
+            <div class="label2">Penghasilan</div>
+            <div class="value2">
                 @if($formulir->penghasilan_wali == '1')
                     : Kurang dari Rp. 1.000.000
                 @elseif($formulir->penghasilan_wali == '2')

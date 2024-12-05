@@ -17,7 +17,7 @@
 </style>
 <body>
 
-    <img src="{{ storage_path('app/public/'.$dokumen->kartu_keluarga) }}" width="100%" alt="Kartu Keluarga"><br/>
+    <img src="{{ storage_path('app/public/'.$dokumen->kartu_keluarga) }}" width="100%" alt="Kartu Keluarga" style="margin-bottom: 20px;"><br/>
     <img src="{{ storage_path('app/public/'.$dokumen->akta_kelahiran) }}" width="100%" alt="Akta Kelahiran" style="margin-bottom: 20px;"><br/>
     <img src="{{ storage_path('app/public/'.$dokumen->ktp_ibu) }}" width="100%" alt="KTP Ibu" style="margin-bottom: 20px;"><br/>
     <img src="{{ storage_path('app/public/'.$dokumen->ktp_ayah) }}" width="100%" alt="KTP Ayah" style="margin-bottom: 20px;"><br/>
