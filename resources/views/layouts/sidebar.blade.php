@@ -58,6 +58,12 @@
                             Formulir Pendaftaran
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('user.index')}}" class="{{(request()->is('user') || request()->is('user/*')) ? 'mm-active' : ''}}">
+                        <i class="metismenu-icon pe-7s-user"></i>
+                            User 
+                    </a>
+                </li>
                 @endrole
                 @role('user')
                 <li>
